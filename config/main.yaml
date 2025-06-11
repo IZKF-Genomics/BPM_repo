@@ -1,0 +1,34 @@
+########################################################
+# Patterns to ignore in file tree display
+########################################################
+tree_ignore:
+  - results/
+  - work/
+  - .nextflow/
+  - .nextflow.log
+  - scATACseq_output
+  - renv
+  - .pixi
+
+########################################################
+# Authors
+########################################################
+authors:
+  ckuo:
+    name: "Chao-Chung Kuo"
+    affiliation: "Genomics Facility"
+    email: "ckuo@ukaachen.de"
+  lgan:
+    name: "Lin Gan"
+    affiliation: "Genomics Facility"
+    email: "lgan@ukaachen.de"
+  mmabrouk:
+    name: "Mohamed Hamdy Elsafi Mabrouk"
+    affiliation: "Genomics Facility"
+    email: "mmabrouk@ukaachen.de"
+
+########################################################
+# Policy
+########################################################
+policy:
+  retention_policy: 30 # Days

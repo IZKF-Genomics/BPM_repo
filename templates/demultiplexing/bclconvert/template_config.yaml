@@ -1,0 +1,79 @@
+# Where this belongs in project.yaml
+section: demultiplexing
+# Template identifier (same as folder name)
+name: bclconvert
+# How to organize in project.yaml: 'subsection' or 'flat'
+structure: flat
+description: |
+  Demultiplexing and quality control pipeline using bcl-convert.
+  
+  This template performs the following steps:
+  1. Demultiplexing of Illumina BCL data using bcl-convert
+  2. Quality control of FASTQ files using FastQC
+  3. Contamination screening using FastQ Screen
+  4. Generation of a comprehensive MultiQC report
+  
+  The pipeline expects Illumina BCL data and optionally a custom samplesheet.
+  Output includes demultiplexed FASTQ files and quality control reports.
+
+# Required inputs from project.yaml or command line or environment variables
+inputs:
+  bcl_path:
+    type: path
+    required: true
+    description: |
+      Path to the raw BCL data directory.
+      This should be the directory containing the Data directory from an Illumina run.
+      Example: /path/to/run/Data/Intensities/BaseCalls
+
+  output_dir:
+    type: path
+    required: false
+    description: |
+      Where to render the output.
+      If not specified, will use the BCL directory name in the current directory.
+    default_resolver: get_raw_basename_as_output
+
+  run_fastq_screen:
+    type: boolean
+    required: false
+    default: true
+    description: |
+      Whether to run FastQ Screen for contamination screening.
+      If false, FastQ Screen will be skipped.
+  
+  num_threads:
+    type: integer
+    required: false
+    description: |
+      Number of threads to use for the pipeline.
+      If not specified, will use the idle threads by percentage defined in the repo config.
+    default_resolver: get_idle_threads_by_percentage
+
+# Post-hooks to be run after template is rendered
+post_hooks:
+  - get_samplesheet_via_API
+
+# Required commands for this template
+required_commands:
+  - bcl-convert
+  - fastqc
+  - fastq_screen
+  - multiqc
+# Please check bpm.config.environment.yaml for the paths to the tools
+
+# Outputs injected into project.yaml by bpm update command
+outputs:
+  fastq_dir:
+    type: path
+    description: |
+      Directory containing the demultiplexed FASTQ files.
+      Organized by sample and read number (R1, R2).
+    resolver: get_FASTQ_folder
+
+  fastq_multiqc:
+    type: path
+    description: |
+      Path to the MultiQC report HTML file.
+      Contains aggregated quality metrics from FastQC and FastQ Screen.
+    resolver: get_multiqc_report

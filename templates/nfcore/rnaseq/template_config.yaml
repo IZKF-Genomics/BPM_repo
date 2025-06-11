@@ -1,0 +1,59 @@
+# Where this belongs in project.yaml
+section: nfcore
+# Template identifier (same as folder name)
+name: rnaseq
+# How to organize in project.yaml: 'subsection' or 'flat'
+structure: subsection
+description: |
+  Run nf-core/rnaseq pipeline for RNA-seq analysis.
+
+# Required inputs from project.yaml or command line or environment variables
+inputs:
+  fastq_dir:
+    type: path
+    required: true
+    description: |
+      Path to the FASTQ files.
+      This should be the directory containing the FASTQ files.
+    default: demultiplexing.fastq_dir
+
+  output_dir:
+    type: path
+    required: false
+    description: |
+      Where to save the results.
+    default: ./results
+  
+  num_threads:
+    type: integer
+    required: false
+    description: |
+      Number of threads to use for the pipeline.
+      If not specified, will use the idle threads by percentage defined in the repo config.
+    default_resolver: get_idle_threads_by_percentage
+
+# Post-hooks to be run after template is rendered
+post_hooks:
+  - construct_samplesheet_nfcore_rnaseq
+  - generate_nextflow_config
+
+# Required commands for this template
+required_commands:
+  - nextflow
+  - multiqc
+# Please check bpm.config.environment.yaml for the paths to the tools
+
+# Outputs injected into project.yaml by bpm update command
+outputs:
+  salmon_dir:
+    type: path
+    description: |
+      Directory containing the Salmon quantification files.
+    resolver: get_salmon_folder
+
+  nfcore_rnaseq_multiqc:
+    type: path
+    description: |
+      Path to the MultiQC report HTML file.
+      Contains aggregated quality metrics from nfcore/rnaseq pipeline.
+    resolver: get_multiqc_report

@@ -1,0 +1,45 @@
+# BPM Environment Configuration
+# This file contains global settings and paths for the Benomic Project Manager
+
+########################################################
+# System Resources Configuration
+########################################################
+# Controls how BPM utilizes system resources
+system:
+  # Percentage of available CPU cores to use (0.0 to 1.0)
+  percentage_of_cores: 0.9
+  # Maximum memory usage in GB (optional)
+  max_memory_gb: 32
+
+########################################################
+# Tool Configuration
+########################################################
+# Define paths and versions for required tools
+# All tools should be in system PATH or provide full paths
+tool_paths:
+  bclconvert: bcl-convert
+  bcl2fastq: bcl2fastq
+  cellranger: cellranger
+  cellranger-atac: cellranger-atac
+  nextflow: nextflow
+  splitpipe: split-pipe
+
+########################################################
+# Reference Data Paths
+########################################################
+# Paths to reference genomes and annotation files
+# All paths should be absolute and accessible
+reference_data:
+  cellranger:
+    base: /data/shared/10xGenomics/
+    arc_mm10_2020_A: /data/shared/10xGenomics/refdata-cellranger-arc-mm10-2020-A-2.0.0
+
+########################################################
+# Host paths
+########################################################
+host_paths:
+  nextgen: "/mnt/nextgen/"
+  nextgen2: "/mnt/nextgen2/"
+  nextgen3: "/mnt/nextgen3/"
+  archive: "/mnt/nextgen2/archive/"
+  Josephs-MacBook-Air: ""

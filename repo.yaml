@@ -1,0 +1,11 @@
+########################################################
+# Repository Metadata
+########################################################
+name: "UKA_IZKF_GF_repo"
+version: "0.1.0"
+description: "BPM repository for internal use"
+last_updated: "2024-03-20"
+maintainer: 
+  - "Chao-Chung Kuo <chao-chung.kuo@rwth-aachen.de>"
+institution: "Genomics Facility, Interdisciplinary Center for Clinical Research (IZKF) University Hospital RWTH Aachen Aachen Germany"
+license: "MIT"  # Specify your license
