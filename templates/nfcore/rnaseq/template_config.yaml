@@ -11,18 +11,18 @@ description: |
 inputs:
   fastq_dir:
     type: path
-    required: true
+    required: false
     description: |
       Path to the FASTQ files.
       This should be the directory containing the FASTQ files.
-    default: demultiplexing.fastq_dir
+    default_resolver: get_demultiplexing_fastq_dir
 
   output_dir:
     type: path
     required: false
     description: |
       Where to save the results.
-    default: ./results
+    default_resolver: get_template_target_dir
   
   num_threads:
     type: integer

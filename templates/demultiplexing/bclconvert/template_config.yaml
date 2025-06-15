@@ -26,14 +26,6 @@ inputs:
       This should be the directory containing the Data directory from an Illumina run.
       Example: /path/to/run/Data/Intensities/BaseCalls
 
-  output_dir:
-    type: path
-    required: false
-    description: |
-      Where to render the output.
-      If not specified, will use the BCL directory name in the current directory.
-    default_resolver: get_raw_basename_as_output
-
   run_fastq_screen:
     type: boolean
     required: false

@@ -1,6 +1,7 @@
 #!/bin/bash
 # BPM Template: demultiplexing/bclconvert
 
+# Enable strict mode: exit on error, undefined vars, and pipeline failures
 set -euo pipefail
 
 # Run bcl-convert
