@@ -1,0 +1,71 @@
+# Workflow identifier (same as folder name)
+name: generate_nfcore_rnaseq_samplesheet
+
+description: "Generate a samplesheet for nf-core RNA-seq pipeline from FASTQ files"
+
+# Required inputs from project.yaml or command line or environment variables
+inputs:
+  strandedness:
+    type: "string"
+    required: false
+    default: "unstranded"
+    description: "Library strandedness (unstranded, forward, reverse)"
+    choices: ["unstranded", "forward", "reverse"]
+
+  fastq_dir:
+    type: "path"
+    required: true
+    description: "Directory containing FastQ files"
+
+  samplesheet_file:
+    type: "path"
+    required: true
+    description: "Path to output samplesheet file"
+
+  read1_extension:
+    type: "string"
+    required: false
+    default: "_R1_001.fastq.gz"
+    description: "Extension for read 1 files"
+
+  read2_extension:
+    type: "string"
+    required: false
+    default: "_R2_001.fastq.gz"
+    description: "Extension for read 2 files"
+
+  single_end:
+    type: "boolean"
+    required: false
+    default: false
+    description: "Whether the data is single-end"
+
+  sanitise_name:
+    type: "boolean"
+    required: false
+    default: false
+    description: "Whether to sanitize sample names"
+
+  sanitise_name_delimiter:
+    type: "string"
+    required: false
+    default: "_"
+    description: "Delimiter for sanitizing names"
+
+  sanitise_name_index:
+    type: "integer"
+    required: false
+    default: 1
+    description: "Index for sanitizing names"
+
+# Post-hooks to be run after template is rendered
+post_hooks:
+
+# Required commands for this template
+required_commands:
+  
+# Please check bpm.config.environment.yaml for the paths to the tools
+
+# Outputs injected into project.yaml by bpm update command
+outputs:
+  

@@ -8,11 +8,6 @@
 #
 # Usage:
 #   ./run.sh
-#
-# Requirements:
-#   - Nextflow
-#   - Docker
-#   - Samplesheet in CSV format
 # =============================================================================
 
 ################## GPM samplesheet #####################
