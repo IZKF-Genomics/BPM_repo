@@ -13,4 +13,4 @@ def get_demultiplexing_fastq_dir(inputs: Dict[str, Any]) -> Path:
     Returns:
         Path to the demultiplexing fastq directory
     """
-    return inputs["fastq_dir"]
+    return inputs["project.demultiplexing.fastq_dir"]

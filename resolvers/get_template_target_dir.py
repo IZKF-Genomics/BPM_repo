@@ -11,9 +11,6 @@ def get_template_target_dir(inputs: Dict[str, Any]) -> Path:
     Returns:
         Path to the template target directory
     """
-    for key, value in inputs.items():
-        print(key, value)
-    section, template_name = inputs["template"].split(":")
-    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-    print(Path(inputs["project_dir"]) / section / template_name)
-    return Path(inputs["project_dir"]) / section / template_name
+    section, template_name = inputs["cmd_params.template"].split(":")
+    target_dir = Path(inputs["project.info.project_dir"]) / section / template_name
+    return target_dir

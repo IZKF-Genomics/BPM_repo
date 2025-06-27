@@ -28,7 +28,7 @@ def get_idle_threads_by_percentage(inputs: Dict[str, Any]) -> int:
     idle_cores = sum(1 for usage in cpu_percentages if usage < 80)
     
     # Get percentage of idle cores to use from config
-    percentage_of_cores = inputs["percentage_of_cores"]
+    percentage_of_cores = inputs["repo_config.environment.system.percentage_of_cores"]
     
     # Calculate number of cores to use
     cores_to_use = int(idle_cores * percentage_of_cores)
