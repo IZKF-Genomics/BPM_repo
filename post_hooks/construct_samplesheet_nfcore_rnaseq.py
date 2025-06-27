@@ -9,6 +9,6 @@ def construct_samplesheet_nfcore_rnaseq(inputs: Dict[str, Any]) -> None:
     Args:
         inputs: Dictionary of input parameters
     """
-    console.dict(inputs)
+    # console.dict(inputs)
     # Get the samplesheet from demultiplexing
-    demultiplexing_samplesheet = inputs["demultiplexing.samplesheet"]
+    demultiplexing_samplesheet = inputs["project.demultiplexing."]

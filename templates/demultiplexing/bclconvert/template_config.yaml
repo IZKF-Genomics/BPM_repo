@@ -26,6 +26,14 @@ inputs:
       This should be the directory containing the Data directory from an Illumina run.
       Example: /path/to/run/Data/Intensities/BaseCalls
 
+  demultiplexing_dir:
+    type: path
+    required: false
+    description: |
+      Path to the demultiplexing directory.
+      This should be the directory where demultiplexing is performed.
+    default_resolver: get_cmd_output
+
   run_fastq_screen:
     type: boolean
     required: false
