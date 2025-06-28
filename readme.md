@@ -46,11 +46,11 @@ This BPM repository is organized into five main folder types, each serving a spe
 
 | Folder | Purpose |
 |--------|---------|
-| **`config/`** | Facility/environment settings |
-| **`templates/`** | Ready-to-use scripts and files |
-| **`resolvers/`** | Dynamic parameter resolution |
-| **`post_hooks/`** | Post-rendering customization |
-| **`workflows/`** | Cross-project utility scripts |
+| [**`config/`**](https://github.com/IZKF-Genomics/BPM_repo/tree/main/config) | Facility/environment settings |
+| [**`templates/`**](https://github.com/IZKF-Genomics/BPM_repo/tree/main/templates) | Ready-to-use scripts and files |
+| [**`resolvers/`**](https://github.com/IZKF-Genomics/BPM_repo/tree/main/resolvers) | Dynamic parameter resolution |
+| [**`post_hooks/`**](https://github.com/IZKF-Genomics/BPM_repo/tree/main/post_hooks) | Post-rendering customization |
+| [**`workflows/`**](https://github.com/IZKF-Genomics/BPM_repo/tree/main/workflows) | Cross-project utility scripts |
 
 ## Detailed Folder Explanations
 
